@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Routing\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Collections.Pooled" Version="1.0.82" />
+  </ItemGroup>
+
+</Project>

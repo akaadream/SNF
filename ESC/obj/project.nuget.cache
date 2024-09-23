@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "D+hDPhOBFVE=",
+  "success": true,
+  "projectFilePath": "D:\\ProjetsVS\\ESC\\ESC\\ESC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Guillaume\\.nuget\\packages\\collections.pooled\\1.0.82\\collections.pooled.1.0.82.nupkg.sha512"
+  ],
+  "logs": []
+}
