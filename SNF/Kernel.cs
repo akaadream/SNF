@@ -14,7 +14,7 @@
         private void Initialize()
         {
             LoadedScenes = [];
-            Router.Initialize();
+            App.Initialize();
         }
 
         public static void Run()

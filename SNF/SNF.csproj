@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Routing\" />
+    <PackageReference Include="Collections.Pooled" Version="1.0.82" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Collections.Pooled" Version="1.0.82" />
+    <Folder Include="Routing\" />
   </ItemGroup>
 
 </Project>

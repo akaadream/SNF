@@ -2,7 +2,7 @@
 
 namespace ESC
 {
-    public sealed class Entity()
+    public sealed class Node()
     {
         public int Id { get; set; }
 

@@ -4,6 +4,6 @@ namespace ESC
 {
     public abstract class Scene()
     {
-        private PooledList<Entity> _entities = [];
+        private PooledList<Node> _nodes = [];
     }
 }
