@@ -1,12 +1,27 @@
 ﻿using Collections.Pooled;
 
-namespace ESC
+namespace SNF
 {
-    public sealed class Node()
+    public sealed class Node
     {
         public int Id { get; set; }
 
-        private PooledList<Feature> _features { get; set; } = [];
+        private PooledList<Feature> _features { get; set; }
+
+        private Node()
+        {
+            _features = [];
+            Id = (App.Instance.CurrentId++).GetHashCode();
+        }
+
+        /// <summary>
+        /// Create a new node
+        /// </summary>
+        /// <returns></returns>
+        public Node Instanciate()
+        {
+            return new Node();
+        }
 
         public T? Find<T>()
         {

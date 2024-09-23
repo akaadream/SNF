@@ -1,4 +1,4 @@
-﻿namespace ESC
+﻿namespace SNF
 {
     internal interface IUpdate
     {

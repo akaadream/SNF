@@ -1,4 +1,4 @@
-﻿namespace ESC
+﻿namespace SNF
 {
     public abstract class Feature
     {

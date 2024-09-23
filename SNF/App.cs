@@ -1,4 +1,4 @@
-﻿namespace ESC
+﻿namespace SNF
 {
     public sealed class App
     {
@@ -8,11 +8,14 @@
         public static App Instance { get; private set; } = new();
 
         private Dictionary<string, Func<Scene>> _scenes { get; set; }
-        internal List<string>? LoadedScenes { get; set; }
+        internal List<string> LoadedScenes { get; set; }
+
+        internal int CurrentId;
 
         private App()
         {
             LoadedScenes = [];
+            CurrentId = 0;
             _scenes = [];
         }
 
