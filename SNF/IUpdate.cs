@@ -1,6 +1,6 @@
 ﻿namespace SNF
 {
-    internal interface IUpdate
+    public interface IUpdate
     {
         public void Update(float delta);
     }

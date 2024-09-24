@@ -6,22 +6,18 @@ namespace SNF
     {
         public int Id { get; set; }
 
-        private PooledList<Feature> _features { get; set; }
+        private PooledList<int> _features { get; set; }
 
-        private Node()
+        private Node(int id)
         {
             _features = [];
-            Id = (App.Instance.CurrentId++).GetHashCode();
         }
 
         /// <summary>
         /// Create a new node
         /// </summary>
         /// <returns></returns>
-        public Node Instanciate()
-        {
-            return new Node();
-        }
+        internal static Node Instanciate(int id) => new(id);
 
         public T? Find<T>()
         {
@@ -36,26 +32,9 @@ namespace SNF
             return default;
         }
 
-        public void Update(float delta)
+        public void AddFeature(int id)
         {
-            for (int i = 0; i < _features.Count; i++)
-            {
-                if (_features[i] is IUpdate updatable)
-                {
-                    updatable.Update(delta);
-                }
-            }
-        }
 
-        public void Draw(float delta)
-        {
-            for (int i = 0; i < _features.Count; i++)
-            {
-                if (_features[i] is IDraw drawable)
-                {
-                    drawable.Draw(delta);
-                }
-            }
         }
     }
 }

@@ -1,10 +1,15 @@
+using SNF;
+
 namespace ECS.Tests
 {
-    public class ControllerTests
+    public class AppTest
     {
+        private Scene _scene;
+
         [SetUp]
         public void Setup()
         {
+            _scene = new Scene();
         }
 
         [Test]
