@@ -1,4 +1,5 @@
 ﻿using Collections.Pooled;
+using SNF.Observe;
 
 namespace SNF
 {
@@ -6,7 +7,11 @@ namespace SNF
     {
         public int Id { get; set; }
 
+        public bool IsActive { get; set; }
+
         private PooledList<int> _features { get; set; }
+
+        private Observer? _observer { get; set; }
 
         private Node(int id)
         {
@@ -35,6 +40,16 @@ namespace SNF
         public void AddFeature(int id)
         {
 
+        }
+
+        public void Update()
+        {
+            if (!IsActive)
+            {
+                return;
+            }
+
+            _observer?.Run();
         }
     }
 }
