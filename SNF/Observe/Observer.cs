@@ -1,37 +1,61 @@
 ﻿namespace SNF.Observe
 {
-    public class Observer(int id, Event<int> @event)
+    public class Observer(int id)
     {
+        /// <summary>
+        /// Unique ID of the observer
+        /// </summary>
         public int Id { get; set; } = id;
-        public Event<int> Event { get; set; } = @event;
 
+        /// <summary>
+        /// Event handlers
+        /// </summary>
+        private Dictionary<Type, List<Action<IEvent>>> eventHandlers = [];
 
-        private List<Observable> Callbacks { get; set; } = [];
-
-        public void Observe(int id, Func<bool> callback)
+        /// <summary>
+        /// Make the observer listen a new event
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="handler"></param>
+        /// <returns>True if the event handler is correctly added</returns>
+        public bool AddListener<T>(Action<T> handler) where T : IEvent
         {
-            Callbacks.Add(new(id, callback));
-        }
-
-        public void AddEvent(Action<int> callback)
-        {
-            Event.AddListener(callback);
-        }
-
-        public void Run()
-        {
-            for (int i = 0; i < Callbacks.Count; i++)
+            Type eventType = typeof(T);
+            if (!eventHandlers.TryGetValue(eventType, out var existing))
             {
-                if (Callbacks[i].Condition())
+                eventHandlers.Add(eventType, []);
+                eventHandlers[eventType].Add((e) => handler((T)e));
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Remove an event handler from the observer
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns>True if the event handler is successfully removed</returns>
+        public bool RemoveListener<T>()
+        {
+            return eventHandlers.Remove(typeof(T));
+        }
+
+        /// <summary>
+        /// Make the observer emit events
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="eventData"></param>
+        public void Emit<T>(T eventData) where T: IEvent
+        {
+            Type eventType = typeof(T);
+            if (eventHandlers.TryGetValue(eventType, out var existing))
+            {
+                for (int i = 0; i < eventHandlers[eventType].Count; i++)
                 {
-                    Emit(id);
+                    eventHandlers[eventType][i](eventData);
                 }
             }
-        }
-
-        public void Emit(int id)
-        {
-            Event.Emit(id);
         }
     }
 }

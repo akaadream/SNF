@@ -1,4 +1,6 @@
-﻿namespace SNF.MonoGame.Features
+﻿using SNF.Flow;
+
+namespace SNF.MonoGame.Features
 {
     public class Counter() : Feature, IUpdate
     {

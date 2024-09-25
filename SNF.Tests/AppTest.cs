@@ -1,4 +1,5 @@
 using SNF;
+using SNF.Testing;
 
 namespace ECS.Tests
 {

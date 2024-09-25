@@ -1,8 +1,8 @@
-﻿namespace SNF
+﻿namespace SNF.Testing
 {
     internal class SNFException : Exception
     {
-        public SNFException(string message):
+        internal SNFException(string message) :
             base(message)
         {
 

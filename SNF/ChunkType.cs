@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SNF.MonoGame.Scenes
+namespace SNF
 {
-    public class TestScene : Scene
+    internal class ChunkType(params Type[] types)
     {
+        public Type[] Types { get; private set; } = types;
     }
 }

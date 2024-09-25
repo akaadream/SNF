@@ -1,4 +1,4 @@
-﻿namespace SNF
+﻿namespace SNF.Flow
 {
     public interface IUpdate
     {

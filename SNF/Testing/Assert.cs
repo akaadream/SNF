@@ -1,8 +1,8 @@
-﻿namespace SNF
+﻿namespace SNF.Testing
 {
-    public static class Assert
+    internal static class Assert
     {
-        public static void Check(bool condition, string message)
+        internal static void Check(bool condition, string message)
         {
             if (condition)
             {
